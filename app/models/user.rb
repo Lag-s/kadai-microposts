@@ -30,8 +30,7 @@ class User < ApplicationRecord
   def feed_microposts
     Micropost.where(user_id: self.following_ids + [self.id])
   end
-  
-  has_many :microposts
+
   has_many :favorites
   has_many :favposts, through: :favorites, source: :micropost
 
